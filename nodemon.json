@@ -1,4 +1,4 @@
 {
-    "watch": ["./", "./routes", "./views", "./node_modules"],
+    "watch": ["./", "./routes", "./views", "./node_modules", "./public"],
     "ext": "js, json, mustache, css"
   }

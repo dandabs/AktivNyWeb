@@ -1,0 +1,20 @@
+body {
+    background-color: #FFFFFF;
+    font-family: 'Raleway', sans-serif
+}
+
+.shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card {
+    background-color: #F4F4F6;
+}
+
+.card.non-rounded {
+    border-radius: 0;
+}
+
+.card.non-bordered {
+    border-width: 0;
+}
