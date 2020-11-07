@@ -1,0 +1,59 @@
+{{> ../templates/header}}
+{{> ../templates/navbar}}
+
+    <div class="container" style="padding:20px">
+
+        <div class="row">
+
+            <div class="col-6 card card-body bg-light non-rounded non-bordered mr-auto">
+
+                <h1>Direct</h1>
+
+                <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Remember me</label>
+  </div>
+  <button type="submit" class="col-8 btn btn-primary themebg">Log in</button>
+  <button type="submit" class="col-3 btn btn-primary themebg">Register</button>
+</form>
+
+            </div>
+
+            <div class="col-5 card card-body bg-light non-rounded non-bordered ml-auto">
+
+                <h1 style="padding-bottom: 2rem;">Social</h1>
+
+  <a class="btn btn-block" style="border-width: 0; color:#fff;background-color:#1DA1F2; border-radius: 25px !important;'">
+  <div class="col" style="margin-bottom: 0.5rem;"><span style="font-size: 1.2rem;" class="fab fa-twitter"></span> </div>
+    <div class="col">Sign in with Twitter</div>
+  </a>
+
+      <a class="btn btn-block" style="border-width: 0; color:#fff;background-color:#DB4437; border-radius: 25px !important;'">
+      <div class="col" style="margin-bottom: 0.5rem;"><span style="font-size: 1.2rem;" class="fab fa-google"></div>
+        <div class="col">Sign in with Google</div>
+    </span> 
+  </a>
+
+    <a class="btn btn-block" style="border-width: 0; color:#fff;background-color:#4267B2; border-radius: 25px !important;'">
+      <div class="col" style="margin-bottom: 0.5rem;"><span style="font-size: 1.2rem;" class="fab fa-facebook"></span> </div>
+        <div class="col">Sign in with Facebook</div>
+  </a>
+
+            </div>
+
+    </div>
+
+    <script src="./cdn/js/authenticate.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/bootstrap-social/bootstrap-social.css"></link>
+
+{{> ../templates/footer}}

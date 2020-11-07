@@ -18,3 +18,12 @@ body {
 .card.non-bordered {
     border-width: 0;
 }
+
+.themebg {
+    background-color: #430E13;
+    border-width: 0;
+}
+
+button.themebg:hover {
+    background-color: #A82431
+}
