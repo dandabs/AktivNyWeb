@@ -1,6 +1,12 @@
 body {
-    background-color: #FFFFFF;
-    font-family: 'Raleway', sans-serif
+    background-color: #F4F4F6;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    overflow-y: clip;
+}
+
+.container {
+    z-index: 2;
 }
 
 .shadow {
@@ -8,11 +14,12 @@ body {
 }
 
 .card {
-    background-color: #F4F4F6;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card.non-rounded {
-    border-radius: 0;
+    border-radius: 10px;
 }
 
 .card.non-bordered {
@@ -20,10 +27,43 @@ body {
 }
 
 .themebg {
-    background-color: #430E13;
+    /*background-color: #430E13;*/
+    background-color: #2F2F2F;
     border-width: 0;
 }
 
 button.themebg:hover {
     background-color: #A82431
+}
+
+#loginbg {
+  background-image: url("https://www.travelingmom.com/wp-content/uploads/2018/06/Finland-Kakslauttanen-Glass-Igloos-.jpg");
+  background-color: #000;
+
+  filter: blur(16px);
+  -webkit-filter: blur(16px);
+
+  height: 100%; 
+  width: 100%;
+  position: absolute;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  transform: scale(1.1); 
+
+}
+
+footer {
+    opacity: 1;
+}
+
+.nav-link {
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+
+.sep {
+    margin-bottom: 25px;
 }

@@ -1,29 +1,36 @@
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow themebg">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top themebg">
   <a class="navbar-brand" href="#">
-    Aktiv
+    AKTIV
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse col mr-auto" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown" style="text-align: center;">
+    <ul class="navbar-nav" style="width: 100%">
+
+    <div style="display: flex; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+
+      <li class="nav-item">
+        <a class="nav-link" href="/">HOME</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#">FEATURES</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link" href="#">PRICING</a>
       </li>
-      <li class="nav-item dropdown">
+
+      </div>
+
+      <li class="nav-item dropdown" style="margin-left: auto;">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
+          {{user.email}}
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
+        <div class="dropdown-menu shadow" style="border-width: 0; border-radius: 10px;" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/member/post">Post</a>
           <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" onClick="signOut()">Logout</a>
         </div>
       </li>
     </ul>

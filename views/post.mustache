@@ -1,0 +1,32 @@
+{{> ../templates/header}}
+{{> ../templates/navbar}}
+
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <div class="container" style="padding:20px">
+
+    <div class="row">
+
+        <div class="col card card-body bg-light non-rounded non-bordered">
+
+        <h1>{{pageTitle}}</h1>
+
+<div id="editor" style="max-height: 50vh"></div>
+
+    </div>
+
+    </div>
+
+    </div>
+
+    </div>
+
+<script src="../../cdn/js/quill-emoji.js"></script>
+<link href="../../cdn/css/quill-emoji.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/visualjerk/quill-magic-url/dist/index.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/kensnyder/quill-image-resize-module/image-resize.min.js"></script>
+
+<script src="../../cdn/js/init-quill.js"></script>
+
+{{> ../templates/footer}}
