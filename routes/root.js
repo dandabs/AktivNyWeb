@@ -16,11 +16,15 @@ router.get('/', function(request,response) {
 
   } else {
 
+    if (sessionCookie != '') {
+
        admin.auth().verifySessionCookie(
           sessionCookie, true /** checkRevoked */)
           .then((decodedClaims) => {
               response.render ('root', {pageTitle: "Home", user: decodedClaims});
           })
+
+        } else response.render ('root', {pageTitle: "Home"});
 
   }
 });
@@ -39,11 +43,15 @@ router.get('/login', function(request,response) {
 
   } else {
 
+        if (sessionCookie != '') {
+
        admin.auth().verifySessionCookie(
           sessionCookie, true /** checkRevoked */)
           .then((decodedClaims) => {
               response.render ('login', {pageTitle: "Login", user: decodedClaims});
           })
+
+        } else response.render ('login', {pageTitle: "Login"});
 
   }
 });
@@ -73,7 +81,7 @@ router.post('/sessionLogin', (req, res) => {
     .then((sessionCookie) => {
 
      // Set cookie policy for session cookie.
-     const options = {maxAge: expiresIn, httpOnly: true, secure: false};
+     const options = {maxAge: expiresIn, httpOnly: false, secure: false};
      res.header("Access-Control-Allow-Origin", "*");
      res.cookie('session', sessionCookie, options);
      res.send(JSON.stringify({status: 'success'}));

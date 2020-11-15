@@ -22,6 +22,7 @@
 
       </div>
 
+{{#user}}
       <li class="nav-item dropdown" style="margin-left: auto;">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{user.email}}
@@ -33,6 +34,12 @@
           <a class="dropdown-item" href="#" onClick="signOut()">Logout</a>
         </div>
       </li>
+{{/user}}
+{{^user}}
+      <li class="nav-item" style="margin-left: auto;">
+        <a class="nav-link" href="/login">SIGN IN</a>
+      </li>
+{{/user}}
     </ul>
   </div>
 </nav>

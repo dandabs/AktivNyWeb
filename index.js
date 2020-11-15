@@ -39,10 +39,12 @@ function checkAuth(req, res, next) {
         .then((user) => {
           next()
         }).catch(() => {
-          res.status(403).send('Unauthorized')
+          res.status(403).redirect('/login')
         });
 
     } else {
+
+        if (sessionCookie != '') {
 
         admin.auth().verifySessionCookie(
             sessionCookie, true /** checkRevoked */)
@@ -51,8 +53,10 @@ function checkAuth(req, res, next) {
             })
             .catch(error => {
               // Session cookie is unavailable or invalid. Force user to login.
-              res.status(403).send('Unauthorized')
+              res.status(403).redirect('/login')
             });
+
+        } else res.status(403).redirect('/login')
 
     }
 

@@ -27,6 +27,23 @@ function getCookie(cname) {
   return "";
 }
 
+function deleteAllCookies() {
+
+  var name = "session";
+
+    // This function will attempt to remove a cookie from all paths.
+    var pathBits = location.pathname.split('/');
+    var pathCurrent = ' path=';
+
+    // do a simple pathless delete first.
+    document.cookie = name + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT;';
+
+    for (var i = 0; i < pathBits.length; i++) {
+        pathCurrent += ((pathCurrent.substr(-1) != '/') ? '/' : '') + pathBits[i];
+        document.cookie = name + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT;' + pathCurrent + ';';
+    }
+}
+
 function signIn() {
 
   firebase.auth()
@@ -51,7 +68,14 @@ function signIn() {
           'csrfToken': csrfToken,
           "Access-Control-Allow-Origin": "*"
         }
+
+      }).then(_ => {
+
+        window.location.reload();
+
       })
+
+      
 
     });
 
@@ -64,6 +88,7 @@ function signIn() {
 
 function signOut() {
   firebase.auth().signOut().then(() => {
+    deleteAllCookies();
     window.location.reload();
     return false;
   }).catch((err) => {
