@@ -57,7 +57,7 @@ function getPosts(amount) {
                 <img src="${doc.data().cover}" style="height: 30vh; object-fit: cover; border-radius: 5px;"></img>
                 
                 <div style="padding: 1.25rem">
-                <p>${String(doc.data().sample).substr(0, 100)}</p>
+                <p>${String(doc.data().sample).substr(0, 100).trim()}...</p>
                 
                 <a href="/post/${doc.id}">Read more...</a>
                 
