@@ -5,41 +5,55 @@
 
     <div class="row">
 
-        <div class="col card card-body bg-light non-rounded non-bordered shadow">
+        <div class="col-8" style="margin: 10px;">
 
-        <h1>{{pageTitle}}</h1>
+                        <div class="row card card-body bg-light non-rounded non-bordered shadow" style="margin-bottom: 15px;">
 
-        <div class="container">
+                        <h1>Tervetuloa.</h1>
 
-        <div class="row">
+                               <div class="container">
 
-        <div class="col text-center">
-        <button onClick="signIn()" class="btn btn-outline-success my-4">Sign In</button>
-        </div>
-        <div class="col text-center">
-        <button onClick="sendRequest()" class="btn btn-outline-info my-4">Send Request</button>
-        </div>
-        <div class="col text-center">
-        <button onClick="signOut()" class="btn btn-outline-danger my-4">Sign Out</button>
-        </div>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc gravida aliquam sem, eu ultrices eros sodales suscipit. Pellentesque at laoreet felis. Sed vitae vulputate velit, in commodo ex. Maecenas non ante nulla. Curabitur eget finibus nisl. Quisque egestas tempus dolor elementum sodales. Pellentesque ut purus orci.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc gravida aliquam sem, eu ultrices eros sodales suscipit. Pellentesque at laoreet felis. Sed vitae vulputate velit, in commodo ex. Maecenas non ante nulla. Curabitur eget finibus nisl. Quisque egestas tempus dolor elementum sodales. Pellentesque ut purus orci.</p>
 
-</div>
+                               </div>
 
-<div class="row">
+                 </div>
 
-<div class="col text-center">
 
-        <p class="lead" id="response">No data yet...</p>
+                        <div class="row" id="container" style="margin-bottom: 15px;">
 
-        </div>
-<div class="col text-center">
+                 </div>
 
-        <p class="lead" id="auth">Unauthorized</p>
-                </div>
+    </div>
 
-        </div>
 
-        </div>
+
+        <div class="col-3" style="margin: 10px;">
+
+                <div class="row card card-body bg-light non-rounded non-bordered shadow" style="margin-bottom: 15px;">
+
+                        <h4>Search</h4>
+
+                               <div class="container">
+
+
+
+                               </div>
+
+                 </div>
+
+                <div class="row card card-body bg-light non-rounded non-bordered shadow" style="margin-bottom: 15px;">
+
+                        <h4>Ad</h4>
+
+                               <div class="container">
+
+
+
+                               </div>
+
+                 </div>
 
     </div>
 
@@ -50,5 +64,6 @@
     </div>
 
         <script src="./cdn/js/authenticate.js"></script>
+        <script defer src="./cdn/js/post.js"></script>
 
 {{> ../templates/footer}}
