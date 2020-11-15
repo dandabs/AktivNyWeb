@@ -111,7 +111,7 @@ function getPost() {
 
 if (String(window.location.href).includes("/post/")) {
 
-    let id = window.location.href.split("/post/")[1];
+    let id = window.location.href.split("/post/")[1].replace('#', '');
 
     firebase.default.firestore().collection('posts').doc(id).get().then(doc => {
 
