@@ -13,10 +13,14 @@
         <h1>{{pageTitle}}</h1>
 
         <input class="form-control" id="title" placeholder="Title" style="margin-bottom: 5px; border-radius: 0;">
+        <textarea placeholder="Sample paragraph" class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 100%;margin-bottom: 5px;border-radius:0;"></textarea>
 
-<div id="editor" style="max-height: 50vh"></div>
+<div id="editor" style="max-height: 50vh;margin-bottom: 20px;"></div>
 
-    <button type="button" class="btn btn-primary themebg btn-block" onclick="postPost('{{user.uid}}')" style="margin-top: 5px">Post</button>
+    <label for="exampleFormControlFile1">Cover image</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1" accept="image/*">
+
+    <button type="button" class="btn btn-primary themebg btn-block" onclick="postPost('{{user.uid}}')" style="margin-top: 20px">Post</button>
 
     </div>
 

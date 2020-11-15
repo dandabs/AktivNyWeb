@@ -1,4 +1,4 @@
-$(document).ready(getPosts(3))
+$(document).ready(getPosts(50))
 $(document).ready(getPost())
 
 function uuidv4() {
@@ -12,13 +12,33 @@ function postPost(uid) {
 
     let id = uuidv4();
 
+    var fileReader = new FileReader();
+    fileReader.onload = function () {
+
+      var data = fileReader.result; 
+
+      var storageRef = firebase.storage().ref();
+      var ref = storageRef.child('postimages/' + Math.round(new Date().getTime()/1000) + '.png');
+
+      console.log(data);
+
+      ref.putString(data, 'data_url').then(function(snapshot) {
+        console.log('Uploaded a base64 string!');
+      });
+
+    };
+
+    fileReader.readAsDataURL($('#exampleFormControlFile1').prop('files')[0]);
+
     firebase.default.firestore()
     .collection('posts').doc(id).set(
         {
             author: firebase.firestore().doc('users/' + uid),
             body: document.getElementsByClassName('ql-editor')[0].innerHTML,
             timestamp: Math.round(new Date().getTime()/1000),
-            title: document.getElementById('title').value
+            title: document.getElementById('title').value,
+            sample: document.getElementById('exampleFormControlTextarea1').value,
+            cover: "https://firebasestorage.googleapis.com/v0/b/aktiv-ny.appspot.com/o/postimages%2F"+ Math.round(new Date().getTime()/1000) + ".png?alt=media"
         }
     ).then(_ => {
 
