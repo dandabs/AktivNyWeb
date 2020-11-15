@@ -1,6 +1,6 @@
 axios.defaults.withCredentials = true;
 
-const client = axios.create({
+var client = axios.create({
   baseURL: 'http://localhost:3000',
   json: true
   })
@@ -46,12 +46,15 @@ function deleteAllCookies() {
 
 function signIn() {
 
+  let username = document.getElementById('exampleInputEmail1').value;
+  let password = document.getElementById('exampleInputPassword1').value;
+
   firebase.auth()
-  .signInWithEmailAndPassword("dummy@gmail.com", "pass123!")
+  .signInWithEmailAndPassword(username, password)
   .then((user) => {
 
     console.log(user);
-    document.getElementById('auth').innerHTML = 'Authorized'
+    //document.getElementById('auth').innerHTML = 'Authorized'
 
     firebase.auth().currentUser.getIdToken().then(idToken => {
       // Session login endpoint is queried and the session cookie is set.
@@ -81,10 +84,60 @@ function signIn() {
 
   }).catch((err) => {
 
-    document.getElementById('auth').innerHTML = err
+    //document.getElementById('auth').innerHTML = err
 
   })
 }
+
+function signUp() {
+
+  let username = document.getElementById('exampleInputEmail1').value;
+  let password = document.getElementById('exampleInputPassword1').value;
+
+  firebase.auth()
+  .createUserWithEmailAndPassword(username, password)
+  .then((user) => {
+
+    console.log(user);
+    //document.getElementById('auth').innerHTML = 'Authorized'
+
+    firebase.auth().currentUser.getIdToken().then(idToken => {
+      // Session login endpoint is queried and the session cookie is set.
+      // CSRF protection should be taken into account.
+      const csrfToken = getCookie('csrfToken')
+
+      client({
+        method: 'post',
+        url: '/sessionLogin',
+        withCredentials: true,
+        credentials: 'include',
+        headers: {
+          'idToken': idToken,
+          'csrfToken': csrfToken,
+          "Access-Control-Allow-Origin": "*"
+        }
+
+      }).then(_ => {
+
+        window.location.reload();
+
+      })
+
+      
+
+    });
+
+  }).catch((error) => {
+
+    var errorCode = error.code;
+    var errorMessage = error.message;
+
+    console.log(errorCode);
+    console.log(errorMessage);
+
+  })
+}
+
 
 function signOut() {
   firebase.auth().signOut().then(() => {

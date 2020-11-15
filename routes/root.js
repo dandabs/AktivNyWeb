@@ -38,7 +38,7 @@ router.get('/login', function(request,response) {
 
      admin.auth().verifyIdToken(req.headers.authtoken)
       .then((user) => {
-          response.render ('login', {pageTitle: "Login", user: user});
+          response.redirect("/");
       })
 
   } else {
@@ -48,7 +48,7 @@ router.get('/login', function(request,response) {
        admin.auth().verifySessionCookie(
           sessionCookie, true /** checkRevoked */)
           .then((decodedClaims) => {
-              response.render ('login', {pageTitle: "Login", user: decodedClaims});
+            response.redirect("/");
           })
 
         } else response.render ('login', {pageTitle: "Login"});
