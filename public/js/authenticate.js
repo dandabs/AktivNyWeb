@@ -111,7 +111,10 @@ function signUp() {
           biography: "",
           displayname: user.user.email,
           gravatar: true,
-          username: user.user.uid
+          username: user.user.uid,
+          social: {
+            email: username
+          }
         }
 
       }

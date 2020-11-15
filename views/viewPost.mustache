@@ -7,21 +7,16 @@
 
         <div class="col-8" style="margin: 10px;">
 
-                        <div class="row card card-body bg-light non-rounded non-bordered shadow" style="margin-bottom: 15px;">
+                        <div class="row card card-body bg-light non-rounded non-bordered shadow" style="margin-bottom: 5%;">
 
-                        <h1>Tervetuloa.</h1>
+                        <h1 id="postTitle"></h1>
 
-                               <div class="container">
+                        <img id="image" style="width: 100%; margin-bottom: 15px; border-radius: 10px;"></img>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc gravida aliquam sem, eu ultrices eros sodales suscipit. Pellentesque at laoreet felis. Sed vitae vulputate velit, in commodo ex. Maecenas non ante nulla. Curabitur eget finibus nisl. Quisque egestas tempus dolor elementum sodales. Pellentesque ut purus orci.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc gravida aliquam sem, eu ultrices eros sodales suscipit. Pellentesque at laoreet felis. Sed vitae vulputate velit, in commodo ex. Maecenas non ante nulla. Curabitur eget finibus nisl. Quisque egestas tempus dolor elementum sodales. Pellentesque ut purus orci.</p>
+                               <div class="container" id="postBody" style="margin-top: 5%;">
+
 
                                </div>
-
-                 </div>
-
-
-                        <div class="row" id="container" style="margin-bottom: 15px;">
 
                  </div>
 
@@ -31,11 +26,23 @@
 
                 <div class="row card card-body bg-light non-rounded non-bordered shadow" style="margin-bottom: 15px;">
 
-                        <h4>Search</h4>
+                        <h4>Author</h4>
 
                                <div class="container">
 
+<div class="row">
 
+<img id="authorIcon" style="margin-top: 15px; width: 100px; height: 100px; border-radius: 100px; display: block; margin-left: auto; margin-right: auto;"></img>
+
+</div>
+
+<div class="row" style="margin-top: 15px;">
+<h5 id="authorName" style="display:block;margin-left:auto;margin-right:auto;word-wrap: break-word;"></h5>
+</div>
+
+<div class="row" style="margin-top: 15px;">
+<p id="authorBio" style="display:block;margin-left:auto;margin-right:auto;word-wrap: break-word;text-justify: inter-word;width:100%;"></p>
+</div>
 
                                </div>
 
@@ -61,7 +68,9 @@
 
     </div>
 
-        <script src="./cdn/js/authenticate.js"></script>
-        <script defer src="./cdn/js/post.js"></script>
+        <script src="/cdn/js/authenticate.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+        <script defer src="/cdn/js/post.js"></script>
 
 {{> ../templates/footer}}

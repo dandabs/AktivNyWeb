@@ -1,4 +1,5 @@
 $(document).ready(getPosts(3))
+$(document).ready(getPost())
 
 function uuidv4() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -9,15 +10,21 @@ function uuidv4() {
 
 function postPost(uid) {
 
-    firebase.firestore()
-    .collection('posts').doc(uuidv4()).set(
+    let id = uuidv4();
+
+    firebase.default.firestore()
+    .collection('posts').doc(id).set(
         {
             author: firebase.firestore().doc('users/' + uid),
             body: document.getElementsByClassName('ql-editor')[0].innerHTML,
             timestamp: Math.round(new Date().getTime()/1000),
             title: document.getElementById('title').value
         }
-    )
+    ).then(_ => {
+
+        window.location.replace('/post/' + id);
+
+    })
 
 }
 
@@ -75,5 +82,40 @@ function getPosts(amount) {
         }
 
     })
+
+}
+
+function getPost() {
+
+if (String(window.location.href).includes("/post/")) {
+
+    let id = window.location.href.split("/post/")[1];
+
+    firebase.default.firestore().collection('posts').doc(id).get().then(doc => {
+
+        let data = doc.data();
+
+        document.getElementById('postTitle').innerHTML = doc.data().title;
+        document.getElementById('postBody').innerHTML = doc.data().body;
+        console.log(doc.data().cover);
+        document.getElementById('image').setAttribute("src", doc.data().cover);
+
+        data.author.get().then(user => {
+
+            let icon = "";
+
+            if ( user.data().profile.gravatar) icon = "https://www.gravatar.com/avatar/" + CryptoJS.MD5(user.data().profile.social.email).toString();
+            if (!user.data().profile.gravatar) icon = user.data().profile.icon;
+
+            document.getElementById('authorIcon').setAttribute("src", icon);
+            document.getElementById('authorName').innerHTML = user.data().profile.displayname;
+            document.getElementById('authorBio').innerHTML = user.data().profile.biography;
+
+        })
+        
+
+    })
+
+}
 
 }
