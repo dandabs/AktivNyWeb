@@ -53,6 +53,8 @@ function signIn() {
   .signInWithEmailAndPassword(username, password)
   .then((user) => {
 
+    firebase.analytics().logEvent('login');
+
     console.log(user);
     //document.getElementById('auth').innerHTML = 'Authorized'
 
@@ -97,6 +99,8 @@ function signUp() {
   firebase.auth()
   .createUserWithEmailAndPassword(username, password)
   .then((user) => {
+
+    firebase.analytics().logEvent('sign_up');
 
     console.log(user);
 
@@ -163,6 +167,7 @@ function signUp() {
 
 function signOut() {
   firebase.auth().signOut().then(() => {
+    firebase.analytics().logEvent('sign_out');
     deleteAllCookies();
     window.location.reload();
     return false;

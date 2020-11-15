@@ -10,6 +10,8 @@ function uuidv4() {
 
 function postPost(uid) {
 
+    firebase.analytics().logEvent('post_post');
+
     let id = uuidv4();
 
     var fileReader = new FileReader();
