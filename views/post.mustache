@@ -12,7 +12,11 @@
 
         <h1>{{pageTitle}}</h1>
 
+        <input class="form-control" id="title" placeholder="Title" style="margin-bottom: 5px; border-radius: 0;">
+
 <div id="editor" style="max-height: 50vh"></div>
+
+    <button type="button" class="btn btn-primary themebg btn-block" onclick="postPost('{{user.uid}}')" style="margin-top: 5px">Post</button>
 
     </div>
 
@@ -23,6 +27,7 @@
     </div>
 
 <script src="../../cdn/js/quill-emoji.js"></script>
+<script src="../../cdn/js/post.js"></script>
 <link href="../../cdn/css/quill-emoji.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/gh/visualjerk/quill-magic-url/dist/index.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/kensnyder/quill-image-resize-module/image-resize.min.js"></script>
