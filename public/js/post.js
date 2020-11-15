@@ -11,9 +11,9 @@ function postPost(uid) {
     .collection('posts').doc(uuidv4()).set(
         {
             author: firebase.firestore().doc('users/' + uid),
-            body: document.getElementById('editor').innerHTML,
+            body: document.getElementsByClassName('ql-editor')[0].innerHTML,
             timestamp: Math.round(new Date().getTime()/1000),
-            title: document.getElementById('title').innerText
+            title: document.getElementById('title').value
         }
     )
 

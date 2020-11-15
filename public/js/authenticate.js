@@ -99,6 +99,25 @@ function signUp() {
   .then((user) => {
 
     console.log(user);
+
+    firebase.firestore().collection('users').doc(user.user.uid).set(
+      {
+
+        permissions: {
+          admin: false,
+          editor: false
+        },
+        profile: {
+          biography: "",
+          displayname: user.user.email,
+          gravatar: true,
+          username: user.user.uid
+        }
+
+      }
+    );
+
+    
     //document.getElementById('auth').innerHTML = 'Authorized'
 
     firebase.auth().currentUser.getIdToken().then(idToken => {
