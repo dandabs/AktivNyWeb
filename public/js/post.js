@@ -77,8 +77,8 @@ function getPosts(amount) {
 
                 $(innerContainer).html(`
 
-                <div style="padding: 1.25rem; padding-bottom: 2vh;">
-                <h5>${doc.data().title}</h5>
+                <div style="padding-bottom: 2vh;">
+                <a href="/post/${doc.id}"><h5 style="color: black;text-decoration: inherit;">${doc.data().title}</h5></a>
                 </div>
                 
                 <img src="${doc.data().cover}" style="height: 30vh; object-fit: cover; border-radius: 5px;"></img>
