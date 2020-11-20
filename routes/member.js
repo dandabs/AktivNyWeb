@@ -50,4 +50,29 @@ router.get('/post', function(request,response) {
 });
 
 
+router.get('/admin', function(request,response) {
+
+    let req = request;
+
+    const sessionCookie = req.cookies.session || '';
+
+    if (req.headers.authtoken) {
+
+       admin.auth().verifyIdToken(req.headers.authtoken)
+        .then((user) => {
+            response.render ('admin', {pageTitle: "Admin", user: user});
+        })
+
+    } else {
+
+         admin.auth().verifySessionCookie(
+            sessionCookie, true /** checkRevoked */)
+            .then((decodedClaims) => {
+                response.render ('admin', {pageTitle: "Admin", user: decodedClaims});
+            })
+
+    }
+});
+
+
 module.exports = router;
