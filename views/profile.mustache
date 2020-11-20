@@ -1,0 +1,138 @@
+{{> ../templates/header}}
+{{> ../templates/navbar}}
+
+    <script src="../../cdn/js/user.js"></script>
+
+    <div class="container" style="padding:20px; min-height: calc(100vh);">
+
+    <div class="row">
+
+    <div class="col-lg-7 col-md-12" style="margin: 10px;">
+
+    <div class="row card card-body bg-light non-rounded non-bordered shadow" style="margin-bottom: 15px;">
+
+    <h1>{{pageTitle}}</h1>
+
+<form>
+
+  <div class="form-group">
+    <label for="categoryid">Display name</label>
+    <input type="text" class="form-control" id="displayname" placeholder="Sanna Marin">
+    <small>The name displayed beside your posts.</small>
+  </div>
+
+  <div class="form-group">
+    <label for="categoryname">Username</label>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">@</span>
+  </div>
+    <input type="text" class="form-control" id="username" placeholder="sanna.marin">
+    
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="biography">Biography</label>
+    <textarea class="form-control" id="biography" rows="4" placeholder="Sanna Mirella Marin (born 16 November 1985) is a Finnish politician who has been Prime Minister of Finland since 10 December 2019. After Antti Rinne's resignation in the wake of the 2019 postal strike, Marin became prime minister on 8 December 2019. At 35, she is the third-youngest serving state leader, the youngest female state leader, and Finland's youngest-ever prime minister."></textarea>
+    <small>A short introduction about yourself.</small>
+  </div>
+
+  <button type="button" class="btn btn-primary themebg btn-block" onclick="saveInfo('{{user.uid}}')" style="margin-top: 20px">Save</button>
+
+</form>
+
+    </div>
+
+    </div>
+
+    <div class="col-lg-4 col-md-12" style="margin: 10px;">
+
+    <div class="row card card-body bg-light non-rounded non-bordered shadow" style="margin-bottom: 15px;">
+
+    <h4>Profile Picture</h4>
+
+                                   <div class="container">
+
+<div class="row">
+
+<img id="avatar" style="margin-top: 15px; width: 100px; height: 100px; border-radius: 100px; display: block; margin-left: auto; margin-right: auto;"></img>
+
+</div>
+
+<div class="row" style="margin-top: 15px;">
+<form>
+
+  <div class="form-group">
+    <input type="file" class="form-control-file" id="avatarupload">
+  </div>
+
+  <button type="button" class="btn btn-primary themebg btn-block" onclick="saveAvatar('{{user.uid}}')" style="margin-top: 20px">Save</button>
+
+</form>
+</div>
+
+
+
+    </div>
+
+    </div>
+
+
+    <div class="row card card-body bg-light non-rounded non-bordered shadow" style="margin-bottom: 15px;">
+
+    <h4>Social Media</h4>
+
+<form>
+
+  <div class="form-group">
+    <label for="twitter">Twitter</label>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">@</span>
+  </div>
+    <input type="text" class="form-control" id="twitter" placeholder="MarinSanna">
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label for="instagram">Instagram</label>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">@</span>
+  </div>
+    <input type="text" class="form-control" id="instagram" placeholder="SannaMarin">
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label for="twitter">Discord</label>
+    <div class="input-group mb-3">
+    <input type="text" class="form-control" id="discord" placeholder="Sannamarin#0001">
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-primary themebg btn-block" onclick="saveSocials('{{user.uid}}')" style="margin-top: 20px">Save</button>
+
+</form>
+
+
+    </div>
+
+    </div>
+
+
+    </div>
+
+    </div>
+
+    </div>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+    
+<script defer type="text/javascript">
+   populateFields("{{user.uid}}")
+</script>
+
+{{> ../templates/footer}}
