@@ -1,4 +1,4 @@
-$(document).ready(getPosts(50))
+$(document).ready(getPosts(4))
 $(document).ready(getPost())
 
 function uuidv4() {
@@ -39,7 +39,7 @@ function postPost(uid) {
             body: document.getElementsByClassName('ql-editor')[0].innerHTML,
             timestamp: Math.round(new Date().getTime()/1000),
             title: document.getElementById('title').value,
-            sample: document.getElementById('exampleFormControlTextarea1').value,
+            //sample: document.getElementById('exampleFormControlTextarea1').value,
             cover: "https://firebasestorage.googleapis.com/v0/b/aktiv-ny.appspot.com/o/postimages%2F"+ Math.round(new Date().getTime()/1000) + ".png?alt=media"
         }
     ).then(_ => {
@@ -60,7 +60,7 @@ function getPosts(amount) {
 
                 console.log(doc.id);
 
-                var outerContainer = $(document.createElement('div'));
+/*                var outerContainer = $(document.createElement('div'));
                 $(outerContainer).css({
                     padding: '5px'
                 });
@@ -97,7 +97,26 @@ function getPosts(amount) {
                 $(outerContainer).append(innerContainer)
 
                 //now appending it to main container
-                $('#container').append(outerContainer);
+                $('#container').append(outerContainer);*/
+
+                var post = $(document.createElement('div'));
+
+                $(post).html(`
+                <div style="border-top-style: solid; border-top-width: thin; border-top-color: #D3D3D3;">
+
+                <a href="/post/${doc.id}"><h5 style="padding-top: 2%; text-transform: uppercase; margin-bottom: 0; color: black;text-decoration: inherit;">
+
+                <strong>${doc.data().title}</strong>
+
+                </h5></a>
+
+<p style="text-transform: uppercase; color: #808080;">${new Date(doc.data().timestamp * 1000).toLocaleString()}</p>
+
+</div>
+`);
+
+$('#postbar').append(post);
+
 
             })
 
