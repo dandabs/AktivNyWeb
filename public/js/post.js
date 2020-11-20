@@ -1,5 +1,6 @@
 $(document).ready(getPosts(4))
 $(document).ready(getPost())
+$(document).ready(populateMain())
 
 function uuidv4() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -159,5 +160,42 @@ if (String(window.location.href).includes("/post/")) {
     })
 
 }
+
+}
+
+function populateMain() {
+
+    firebase.default.firestore().collection('categories').get().then((snap) => {
+
+        if (snap.size != 0) {
+
+            snap.forEach(doc => {
+
+                var div = $(document.createElement('div'));
+
+                $(div).css("padding", "1.5rem");
+                $(div).addClass("col-md-4");
+                $(div).addClass("col-sm-12");
+
+                $(div).html(`
+
+                <a href="/category/${doc.id}"><div class="row card card-body bg-light non-rounded non-bordered shadow"
+                style="padding-top: 75%; background-image: linear-gradient(to right, ${doc.data().colora}, ${doc.data().colorb}), url('${doc.data().image}');
+                        background-position: center; background-repeat: no-repeat; background-size: cover;"
+                >
+
+                        <h4 style="color: #FFFFFF;text-align: center;">${doc.data().name}</h4>
+
+                 </div></a>
+
+`);
+
+$('#postcontainer').append(div);
+
+            })
+
+        }
+
+    })
 
 }
