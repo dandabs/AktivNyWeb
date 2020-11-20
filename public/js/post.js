@@ -40,7 +40,8 @@ function postPost(uid) {
             timestamp: Math.round(new Date().getTime()/1000),
             title: document.getElementById('title').value,
             //sample: document.getElementById('exampleFormControlTextarea1').value,
-            cover: "https://firebasestorage.googleapis.com/v0/b/aktiv-ny.appspot.com/o/postimages%2F"+ Math.round(new Date().getTime()/1000) + ".png?alt=media"
+            cover: "https://firebasestorage.googleapis.com/v0/b/aktiv-ny.appspot.com/o/postimages%2F"+ Math.round(new Date().getTime()/1000) + ".png?alt=media",
+            tags: $('#exampleFormControlSelect2').val()
         }
     ).then(_ => {
 
