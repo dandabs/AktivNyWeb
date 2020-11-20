@@ -56,6 +56,33 @@ router.get('/post/:postid', function(request,response) {
   }
 });
 
+router.get('/category/:categoryid', function(request,response) {
+  let req = request;
+
+  const sessionCookie = req.cookies.session || '';
+
+  if (req.headers.authtoken) {
+
+     admin.auth().verifyIdToken(req.headers.authtoken)
+      .then((user) => {
+          response.render ('viewCategory', {pageTitle: "Category", user: user});
+      })
+
+  } else {
+
+    if (sessionCookie != '') {
+
+       admin.auth().verifySessionCookie(
+          sessionCookie, true /** checkRevoked */)
+          .then((decodedClaims) => {
+              response.render ('viewCategory', {pageTitle: "Category", user: decodedClaims});
+          })
+
+        } else response.render ('viewCategory', {pageTitle: "Category"});
+
+  }
+});
+
 router.get('/login', function(request,response) {
   let req = request;
 

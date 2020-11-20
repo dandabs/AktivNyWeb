@@ -161,6 +161,54 @@ if (String(window.location.href).includes("/post/")) {
 
 }
 
+if (String(window.location.href).includes("/category/")) {
+
+    let id = window.location.href.split("/category/")[1].replace('#', '');
+
+    firebase.default.firestore().collection('categories').doc(id).get().then(doc => {
+
+        document.getElementById('postTitle').innerHTML = doc.data().name;
+        document.getElementById('image').setAttribute("src", doc.data().image);
+        
+        firebase.default.firestore().collection('posts').where('tags', 'array-contains', doc.data().name).get().then((snap) => {
+
+            if (snap.size != 0) {
+
+                snap.forEach(post => {
+
+                    var div = $(document.createElement('div'));
+
+                    $(div).addClass("col-lg-4");
+                    $(div).addClass("col-md-6");
+                    $(div).addClass("col-sm-12");
+                    $(div).css("padding", "1.5rem");
+
+                    $(div).html(`
+
+                    <div class="row card card-body bg-light non-rounded non-bordered shadow" style="margin-bottom: 5%;">
+   
+                    <h4>${post.data().title}</h4>
+   
+                    <img src="${post.data().cover}" style="width: 100%; height: 7rem; object-fit: cover; border-radius: 5px;"></img>
+   
+                    <a href="/post/${post.id}" style="padding-top: 10px;">Read article...</a>
+   
+                    </div>
+                    
+                    `);
+
+                    $('#categoryposts').append(div);
+
+                })
+
+            }
+
+        })
+
+    })
+
+}
+
 }
 
 function populateMain() {
