@@ -154,6 +154,48 @@ if (String(window.location.href).includes("/post/")) {
             document.getElementById('authorName').innerHTML = user.data().profile.displayname;
             document.getElementById('authorBio').innerHTML = user.data().profile.biography;
 
+            if (user.data().profile.social.twitter != undefined && user.data().profile.social.twitter != "") {
+
+                $('#authorsocials').append(
+
+                    $(document.createElement('span')).html(`
+                    
+                    <a href="https://twitter.com/${user.data().profile.social.twitter}"><i class="fab fa-twitter"></i></a>
+                    
+                    `)
+
+                );
+
+            }
+
+            if (user.data().profile.social.instagram != undefined && user.data().profile.social.instagram != "") {
+
+                $('#authorsocials').append(
+
+                    $(document.createElement('span')).html(`
+                    
+                    <a href="https://instagram.com/${user.data().profile.social.instagram}"><i class="fab fa-instagram"></i></a>
+                    
+                    `)
+
+                );
+
+            }
+
+            if (user.data().profile.social.discord != undefined && user.data().profile.social.discord != "") {
+
+                $('#authorsocials').append(
+
+                    $(document.createElement('span')).html(`
+                    
+                    <a role="button" href="#" data-toggle="tooltip" data-placement="top" title="${user.data().profile.social.discord}"><i class="fab fa-discord"></i></a>
+                    
+                    `)
+
+                );
+
+            }
+
         })
         
 
@@ -194,7 +236,7 @@ if (String(window.location.href).includes("/category/")) {
                     <a href="/post/${post.id}" style="padding-top: 10px;">Read article...</a>
    
                     </div>
-                    
+
                     `);
 
                     $('#categoryposts').append(div);

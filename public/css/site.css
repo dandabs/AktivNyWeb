@@ -67,3 +67,13 @@ footer {
 .sep {
     margin-bottom: 25px;
 }
+
+div.demo {
+    display: table;
+    width: 100%;
+    table-layout: fixed;    /* For cells of equal size */
+}
+div.demo span {
+    display: table-cell;
+    text-align: center;
+}
