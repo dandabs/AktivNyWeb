@@ -29,6 +29,33 @@ router.get('/', function(request,response) {
   }
 });
 
+router.get('/about', function(request,response) {
+  let req = request;
+
+  const sessionCookie = req.cookies.session || '';
+
+  if (req.headers.authtoken) {
+
+     admin.auth().verifyIdToken(req.headers.authtoken)
+      .then((user) => {
+          response.render ('about', {pageTitle: "About Us", user: user});
+      })
+
+  } else {
+
+    if (sessionCookie != '') {
+
+       admin.auth().verifySessionCookie(
+          sessionCookie, true /** checkRevoked */)
+          .then((decodedClaims) => {
+              response.render ('about', {pageTitle: "About Us", user: decodedClaims});
+          })
+
+        } else response.render ('about', {pageTitle: "About Us"});
+
+  }
+});
+
 router.get('/post/:postid', function(request,response) {
   let req = request;
 

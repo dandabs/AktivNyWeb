@@ -5,7 +5,57 @@
 
     <div class="row">
 
-    <div class="col-lg-6 col-md-12" style="margin: 10px;">
+        <div class="col-lg-7 col-md-12" style="margin: 10px;">
+
+
+    <div class="row card card-body bg-light non-rounded non-bordered shadow" style="margin-bottom: 15px;">
+
+    <h4>Homepage</h4>
+
+<form>
+
+  <div class="form-group">
+    <label for="homepagetitle">Title</label>
+    <input class="form-control form-control-sm" type="text" placeholder="Tervetuloa" id="homepagetitle">
+  </div>
+
+  <div class="form-group">
+    <label for="homepagecontent">Content</label>
+    <textarea class="form-control" id="homepagecontent" rows="4" placeholder="Welcome to your no.1 source for news about Teemu's concerning addiction to K-pop!"></textarea>
+  </div>
+
+  <button type="button" class="btn btn-primary themebg btn-block" onclick="saveHomepage()">Create</button>
+
+</form>
+
+    </div>
+
+    <div class="row card card-body bg-light non-rounded non-bordered shadow" style="margin-bottom: 15px;">
+
+    <h4>About Us</h4>
+
+<form>
+
+  <div class="form-group">
+    <label for="homepagetitle">Title</label>
+    <input class="form-control form-control-sm" type="text" placeholder="Tervetuloa" id="homepagetitle">
+  </div>
+
+  <div class="form-group">
+    <label for="homepagecontent">Content</label>
+    <textarea class="form-control" id="homepagecontent" rows="4" placeholder="Welcome to your no.1 source for news about Teemu's concerning addiction to K-pop!"></textarea>
+  </div>
+
+  <button type="button" class="btn btn-primary themebg btn-block" onclick="saveHomepage()">Create</button>
+
+</form>
+
+    </div>
+
+    </div>
+
+
+    <div class="col-lg-4 col-md-12" style="margin: 10px;">
 
     <div class="row card card-body bg-light non-rounded non-bordered shadow" style="margin-bottom: 15px;">
 
@@ -49,6 +99,13 @@
 
     </div>
 
+
+    </div>
+
+    <div class="row">
+
+
+
     </div>
 
     </div>
@@ -57,5 +114,9 @@
 
 <script defer src="../../cdn/js/post.js"></script>
 <script defer src="../../cdn/js/categories.js"></script>
+
+<script>
+populate();
+</script>
 
 {{> ../templates/footer}}

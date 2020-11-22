@@ -78,3 +78,27 @@ function addCategory() {
     })
 
 }
+
+function populate() {
+
+    firebase.default.firestore().collection('config').doc('site').get().then(doc => {
+
+        $('#homepagetitle').val(doc.data().homepagetitle);
+        $('#homepagecontent').val(doc.data().homepagecontent);
+
+    })
+
+}
+
+populate();
+
+function saveHomepage() {
+
+    firebase.default.firestore().collection('config').doc('site').set({
+
+        homepagetitle: $('#homepagetitle').val(),
+        homepagecontent: $('#homepagecontent').val()
+
+    }, { merge: true });
+
+}
