@@ -102,3 +102,14 @@ function saveHomepage() {
     }, { merge: true });
 
 }
+
+function saveAbout() {
+
+    firebase.default.firestore().collection('config').doc('site').set({
+
+        homepagetitle: $('#homepagetitle').val(),
+        homepagecontent: $('#homepagecontent').val()
+
+    }, { merge: true });
+
+}
